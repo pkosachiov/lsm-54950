@@ -2,18 +2,19 @@ import sys
 
 from PyQt6.QtGui import QPainter, QColor
 from PyQt6.QtWidgets import QWidget, QApplication, QPushButton
-from PyQt6 import uic
 import random
 
 
 class Example(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi('Ui.ui', self)  # Загружаем дизайн
         self.initUI()
 
     def initUI(self):
+        self.setGeometry(300, 300, 200, 200)
         self.setWindowTitle('Рисование')
+        self.btn = QPushButton('Рисовать', self)
+        self.btn.move(70, 150)
         self.do_paint = False
         self.btn.clicked.connect(self.paint)
 
